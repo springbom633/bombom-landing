@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>봄봄어린이집 — 더 넓고 따뜻하게, 확장 이전했습니다</title>
+<meta name="description" content="트리플센텀 이웃과 4년을 함께한 봄봄어린이집이 160평 관리동으로 확장 이전했습니다. 안심 통학버스 운행 · 상담 031-431-0633">
+<meta property="og:title" content="봄봄어린이집 — 새 보금자리로 놀러오세요">
+<meta property="og:description" content="트리플센텀 4년 동행, 160평 새 공간에서 다시 시작합니다.">
+<meta property="og:image" content="assets/bombom-1.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&family=Jua&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFFFF;         /* 순수 흰 도화지 (회장님 참고사진 기준) */
+  --paper-warm:#FAFAF8;    /* 섹션 구분용 아주 옅은 회백 */
+  --line:#EFEDE8;          /* 은은한 노트 줄 */
+  --ink:#4A3F35;           /* 잉크 브라운 */
+  --ink-soft:#8C7B6B;      /* 보조 텍스트 */
+  --red:#E37E72;           /* 크레파스 코랄 (테두리) */
+  --yellow:#F5C64F;        /* 절제된 옐로 */
+  --pink:#EFA8BC;
+  --sage:#7C9B72;          /* 세이지 그린 (CTA) */
+  --sage-d:#5F7E56;
+  --sky:#9EC8DB;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Gaegu',cursive;
+  font-weight:700;
+  color:var(--ink);
+  background:#F1F2F3;
+  line-height:1.75;
+  word-break:keep-all;
+  -webkit-font-smoothing:antialiased;
+}
+.sans{font-family:'Noto Sans KR',sans-serif}
+.paper{
+  max-width:520px;margin:0 auto;
+  background:var(--paper);
+  overflow:hidden;position:relative;
+  box-shadow:0 0 40px rgba(120,95,60,.12);
+}
+.wave-top,.wave-bottom{display:block;width:100%;height:22px}
+section{padding:58px 30px;position:relative}
+h1,h2{font-family:'Jua',sans-serif;font-weight:400}
+
+/* 섹션 타이틀 공통 — 이모지 대신 절제된 타이포 + 크레파스 밑줄 */
+.sec-tt{text-align:center;margin-bottom:8px;font-size:31px;letter-spacing:.5px}
+.sec-sub{text-align:center;font-size:16px;color:var(--ink-soft);font-family:'Noto Sans KR';font-weight:300;letter-spacing:3.5px;text-transform:uppercase;margin-bottom:34px}
+.tt-line{width:56px;height:6px;margin:14px auto 0;display:block}
+
+/* 등장 모션 — 폴짝 스프링 바운스 (JS 게이트: JS 죽어도 다 보임) */
+html.js .fade{opacity:0;transform:translateY(22px) scale(.96);transition:opacity .55s ease,transform .75s cubic-bezier(.34,1.6,.5,1)}
+html.js .fade.on{opacity:1;transform:none}
+/* 프로그램 카드: 하나씩 폴짝폴짝 등장 */
+@keyframes pop-in{0%{opacity:0;transform:translateY(26px) scale(.7)}62%{opacity:1;transform:translateY(-7px) scale(1.06)}82%{transform:translateY(2px) scale(.99)}100%{opacity:1;transform:none}}
+html.js .prog-grid .prog-card{opacity:0}
+html.js .prog.on .prog-card{animation:pop-in .65s cubic-bezier(.3,1.4,.5,1) forwards}
+html.js .prog.on .prog-card:nth-child(2){animation-delay:.14s}
+html.js .prog.on .prog-card:nth-child(3){animation-delay:.28s}
+html.js .prog.on .prog-card:nth-child(4){animation-delay:.42s}
+.prog-card{transition:transform .25s cubic-bezier(.34,1.8,.5,1)}
+.prog-card:active{transform:scale(.94) rotate(-1.5deg)}
+
+/* ── 살아있는 그림책 모션 (절제된 유아 감성) ── */
+@keyframes float-y{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes drift-x{0%,100%{transform:translateX(0)}50%{transform:translateX(14px)}}
+/* 해: 통통 튀며 갸웃갸웃 */
+@keyframes sun-bounce{0%,100%{transform:translateY(0) rotate(-5deg)}25%{transform:translateY(-6px) rotate(0deg)}50%{transform:translateY(0) rotate(5deg) scale(1.07)}75%{transform:translateY(-4px) rotate(0deg)}}
+/* 버스: 달리면서 통통 (X이동+Y바운스 결합) */
+@keyframes bus-run{0%{transform:translateX(-40px) translateY(0)}12%{transform:translateX(8px) translateY(-2.5px)}25%{transform:translateX(60px) translateY(0)}37%{transform:translateX(110px) translateY(-2.5px)}50%{transform:translateX(160px) translateY(0)}62%{transform:translateX(210px) translateY(-2.5px)}75%{transform:translateX(260px) translateY(0)}87%{transform:translateX(310px) translateY(-2.5px)}100%{transform:translateX(360px) translateY(0)}}
+@keyframes wheel-spin{to{transform:rotate(360deg)}}
+/* 액자: 통통 뛰며 자리잡기 */
+@keyframes settle{0%{transform:rotate(-4deg) scale(.88)}45%{transform:rotate(1.5deg) scale(1.05)}70%{transform:rotate(-1.4deg) scale(.985)}100%{transform:rotate(-.8deg) scale(1)}}
+@keyframes pulse-call{0%,100%{box-shadow:0 8px 22px rgba(95,126,86,.35)}50%{box-shadow:0 8px 30px rgba(95,126,86,.55)}}
+/* 전화버튼: 가끔 앙증맞게 흔들 */
+@keyframes wiggle{0%,88%,100%{transform:rotate(0)}90%{transform:rotate(-1.6deg) scale(1.015)}93%{transform:rotate(1.6deg)}96%{transform:rotate(-.9deg)}98%{transform:rotate(.5deg)}}
+/* 화살표·작은 요소 콩콩 */
+@keyframes hop{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+.deco-sun{position:absolute;top:22px;left:18px;width:64px;height:64px;animation:sun-bounce 3.2s ease-in-out infinite;transform-origin:center}
+.deco-cloud1{position:absolute;top:30px;right:22px;width:64px;animation:drift-x 7s ease-in-out infinite}
+.deco-cloud2{position:absolute;top:74px;right:86px;width:44px;opacity:.7;animation:drift-x 9s ease-in-out infinite reverse}
+html.js .hero-art.on{animation:settle 1.1s ease .5s both}
+.tt-underline{display:block;width:120px;height:10px;margin:6px auto 0}
+.tt-underline path{stroke-dasharray:130;stroke-dashoffset:130}
+html.js .on .tt-underline path,html.js .on.tt-wrap .tt-underline path{animation:draw 1s ease .4s forwards}
+html:not(.js) .tt-underline path{stroke-dashoffset:0}
+
+/* 달리는 크레파스 버스 */
+.bus-road{position:relative;height:66px;margin:4px auto 18px;overflow:hidden;max-width:340px}
+.bus-road .roadline{position:absolute;bottom:8px;left:0;right:0;border-bottom:2.5px dashed #E3D7C0}
+.bus-mini{position:absolute;bottom:12px;left:0;width:84px;animation:bus-run 7s linear infinite}
+.bus-mini .wheel{transform-origin:center;transform-box:fill-box;animation:wheel-spin 1.2s linear infinite}
+@media (prefers-reduced-motion:reduce){
+  .deco-sun,.deco-cloud1,.deco-cloud2,.bus-mini,.bus-mini .wheel,html.js .hero-art.on,
+  .call-btn,.growth .arr,.eyebrow,html.js .prog.on .prog-card{animation:none}
+  html.js .prog-grid .prog-card{opacity:1}
+}
+.call-btn{animation:pulse-call 3.6s ease-in-out infinite, wiggle 6s ease-in-out 2s infinite}
+.growth .arr{animation:hop 1.6s ease-in-out infinite}
+.eyebrow{animation:hop 3.4s ease-in-out 1s infinite}
+
+/* ══ 1 히어로 ══ */
+.hero{padding-top:64px;padding-bottom:54px;text-align:center;
+  background:
+    repeating-linear-gradient(transparent,transparent 37px,var(--line) 37px,var(--line) 38.5px),
+    var(--paper);
+}
+.hero .eyebrow{
+  display:inline-block;font-family:'Noto Sans KR';font-weight:400;font-size:13px;
+  letter-spacing:4px;color:#C77E66;margin-bottom:22px;
+  border-bottom:1.5px solid #E9C9B8;padding-bottom:6px;
+}
+.hero h1{font-size:44px;line-height:1.3;color:var(--ink)}
+.hero h1 .bom{
+  color:#E8834A;
+  background:linear-gradient(transparent 62%, rgba(245,198,79,.55) 62%, rgba(245,198,79,.55) 92%, transparent 92%);
+  padding:0 3px;
+}
+.hero .lead{font-size:23px;margin-top:26px;color:var(--ink)}
+.hero .lead .hl{background:linear-gradient(transparent 60%, rgba(245,198,79,.5) 60%, rgba(245,198,79,.5) 90%, transparent 90%);padding:0 2px}
+.hero-art{
+  width:86%;max-width:380px;margin:36px auto 0;display:block;
+  border-radius:6px;
+  border:1px solid #EADFC9;
+  padding:10px;background:#fff;
+  box-shadow:0 10px 28px rgba(120,95,60,.14);
+  transform:rotate(-.8deg);
+}
+
+/* ══ 2 이야기 ══ */
+.story{background:var(--paper-warm)}
+.letter{
+  background:#FFFFFF;
+  border:1px solid #EDE3CF;border-radius:8px;
+  padding:34px 28px;font-size:22.5px;line-height:1.95;
+  box-shadow:0 6px 20px rgba(120,95,60,.08);
+  background-image:repeating-linear-gradient(transparent,transparent 37px,#F1EFEA 37px,#F1EFEA 38px);
+}
+.letter p+p{margin-top:20px}
+.letter .hl{background:linear-gradient(transparent 60%, rgba(245,198,79,.5) 60%, rgba(245,198,79,.5) 90%, transparent 90%);padding:0 2px}
+.letter .hl-p{background:linear-gradient(transparent 60%, rgba(239,168,188,.45) 60%, rgba(239,168,188,.45) 90%, transparent 90%);padding:0 2px}
+.letter .sign{margin-top:26px;text-align:right;font-size:20px;color:var(--ink-soft)}
+.growth{display:flex;align-items:stretch;justify-content:center;gap:14px;margin-top:34px}
+.growth .box{
+  flex:1;background:#fff;border:1px solid #E7DCC6;border-radius:8px;
+  padding:18px 12px;text-align:center;
+  font-family:'Noto Sans KR';font-size:16px;font-weight:500;color:var(--ink);
+  box-shadow:0 4px 14px rgba(120,95,60,.07);
+}
+.growth .box b{font-family:'Jua';font-weight:400;font-size:17px;display:block;margin-bottom:4px;color:#B0713F}
+.growth .box small{display:block;margin-top:6px;font-size:14.5px;color:var(--ink-soft);font-weight:400}
+.growth .arr{align-self:center;color:#CDB89A;font-size:20px}
+
+/* ══ 2.5 원장 소개 ══ */
+.principal{background:var(--paper)}
+.pcard{
+  background:#fff;border:1px solid #EDE3CF;border-radius:12px;
+  padding:30px 26px;text-align:center;
+  box-shadow:0 6px 20px rgba(120,95,60,.08);
+}
+.pphoto{width:96px;height:96px;margin:0 auto 14px;border-radius:50%;overflow:hidden;background:#FAF7F0;border:2.5px dashed #DCCFB4}
+.pphoto svg{width:100%;height:100%}
+.pname{font-family:'Jua';font-size:24px;margin-bottom:10px}
+.pbio{list-style:none;padding:0;margin:0 0 16px;font-family:'Noto Sans KR';font-weight:400;font-size:15px;color:var(--ink-soft);line-height:2}
+.pbio li::before{content:'·  ';color:#CDB89A}
+.pmsg{font-size:21px;color:#7C9B72;line-height:1.7}
+
+/* ══ 3 통학버스 ══ */
+.bus-sec{background:var(--paper)}
+.bus-note{text-align:center;font-size:22px;margin-bottom:26px}
+.timetable{
+  width:100%;border-collapse:collapse;table-layout:fixed;
+  background:#fff;border-radius:10px;overflow:hidden;
+  box-shadow:0 6px 20px rgba(120,95,60,.08);
+  font-family:'Noto Sans KR';
+}
+.timetable th{
+  font-family:'Jua';font-weight:400;font-size:21px;padding:15px 4px;
+  color:#8A6F3E;background:#FFF7E2;letter-spacing:2px;
+}
+.timetable th:first-child{border-right:1px solid #EDEAE2}
+.timetable td{
+  padding:13px 4px;text-align:center;font-size:20px;font-weight:500;color:var(--ink);
+  border-top:1px solid #F0F0EE;letter-spacing:1px;
+}
+.timetable td:first-child{border-right:1px solid #F0F0EE}
+.tb-cap{margin-top:12px;text-align:center;font-family:'Noto Sans KR';font-weight:400;font-size:14.5px;color:var(--ink-soft);letter-spacing:.5px}
+
+/* 프로그램 */
+.prog{margin-top:52px}
+.prog h3{font-family:'Jua';font-weight:400;font-size:27px;text-align:center;margin-bottom:6px}
+.prog .cap{text-align:center;font-family:'Noto Sans KR';font-weight:300;font-size:13px;letter-spacing:3px;color:var(--ink-soft);margin-bottom:26px}
+.prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.prog-card{
+  background:#fff;border-radius:10px;padding:12px 12px 16px;text-align:center;
+  border:1px solid #EDE3CF;
+  box-shadow:0 5px 16px rgba(120,95,60,.07);
+}
+.prog-art{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px;margin-bottom:10px;display:block}
+.prog-card b{font-family:'Jua';font-weight:400;font-size:22px;color:var(--ink);display:block}
+.prog-card span{font-family:'Noto Sans KR';font-weight:400;color:var(--ink-soft);font-size:15px;line-height:1.6;display:block;margin-top:3px}
+
+/* ══ 4 위치·문의 ══ */
+.loc{background:var(--paper-warm)}
+.map-card{
+  background:#fff;border:1px solid #EDE3CF;border-radius:10px;overflow:hidden;
+  box-shadow:0 6px 20px rgba(120,95,60,.09);
+}
+.map-card iframe{display:block;width:100%;height:300px;border:0}
+.map-meta{padding:20px 20px 22px;text-align:center}
+.map-meta .lm{font-size:23px;margin-bottom:4px}
+.map-meta .lm .hl-b{background:linear-gradient(transparent 60%, rgba(158,200,219,.45) 60%, rgba(158,200,219,.45) 90%, transparent 90%);padding:0 2px}
+.map-meta .addr{font-family:'Noto Sans KR';font-weight:400;font-size:16px;color:var(--ink-soft);line-height:1.7}
+.map-links{display:flex;gap:10px;margin-top:16px}
+.map-links a{
+  flex:1;padding:11px 4px;border-radius:8px;text-decoration:none;text-align:center;
+  font-family:'Noto Sans KR';font-size:15.5px;font-weight:500;
+  color:var(--ink);border:1.5px solid #DDD0B8;background:#FFFFFF;
+}
+.call-wrap{margin-top:30px}
+.call-btn{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  width:100%;padding:19px 10px;border-radius:12px;
+  background:var(--sage);color:#FDFBF3;text-decoration:none;
+  font-family:'Gaegu';font-weight:700;font-size:27px;letter-spacing:1px;
+  box-shadow:0 8px 22px rgba(95,126,86,.35);
+  transition:transform .15s ease;
+}
+.call-btn:active{transform:scale(.985)}
+.call-btn svg{width:22px;height:22px}
+.call-note{text-align:center;font-family:'Noto Sans KR';font-weight:400;font-size:15px;color:var(--ink-soft);margin-top:12px;letter-spacing:.5px}
+
+footer{
+  text-align:center;padding:34px 20px 40px;
+  font-family:'Noto Sans KR';font-weight:400;font-size:14px;color:#A79683;line-height:2;
+  background:var(--paper-warm);border-top:1px solid #EFE6D3;
+}
+footer b{font-family:'Jua';font-weight:400;font-size:15px;color:var(--ink-soft);letter-spacing:1px}
+
+@media (max-width:380px){
+  .hero h1{font-size:35px}
+  section{padding:48px 22px}
+}
+</style>
+</head>
+<body>
+<div class="paper">
+
+  <svg class="wave-top" viewBox="0 0 520 22" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 17 Q 13 4 26 17 T 52 17 T 78 17 T 104 17 T 130 17 T 156 17 T 182 17 T 208 17 T 234 17 T 260 17 T 286 17 T 312 17 T 338 17 T 364 17 T 390 17 T 416 17 T 442 17 T 468 17 T 494 17 T 520 17 L520 0 L0 0 Z" fill="#E37E72" opacity=".8"/>
+  </svg>
+
+  <!-- ══ 1 히어로 ══ -->
+  <section class="hero">
+    <!-- 살아있는 그림책 장식: 살랑이는 해 + 둥둥 구름 -->
+    <svg class="deco-sun" viewBox="0 0 80 80" aria-hidden="true">
+      <g stroke="#F0B429" stroke-width="3.5" stroke-linecap="round" opacity=".85">
+        <line x1="40" y1="5" x2="40" y2="14"/><line x1="40" y1="66" x2="40" y2="75"/>
+        <line x1="5" y1="40" x2="14" y2="40"/><line x1="66" y1="40" x2="75" y2="40"/>
+        <line x1="15" y1="15" x2="21" y2="21"/><line x1="59" y1="59" x2="65" y2="65"/>
+        <line x1="15" y1="65" x2="21" y2="59"/><line x1="59" y1="21" x2="65" y2="15"/>
+      </g>
+      <circle cx="40" cy="40" r="20" fill="#FFD34D" stroke="#F0B429" stroke-width="2.5"/>
+      <circle cx="33.5" cy="37" r="2.2" fill="#7A5B22"/><circle cx="46.5" cy="37" r="2.2" fill="#7A5B22"/>
+      <path d="M33 45 Q 40 51 47 45" stroke="#7A5B22" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    </svg>
+    <svg class="deco-cloud1" viewBox="0 0 70 36" aria-hidden="true">
+      <path d="M16 30 a10 10 0 0 1 2-19 a12 12 0 0 1 22-4 a10 10 0 0 1 14 9 a8 8 0 0 1-2 14 Z" fill="#CBE4F0" stroke="#A9CFE0" stroke-width="2" stroke-linejoin="round"/>
+    </svg>
+    <svg class="deco-cloud2" viewBox="0 0 70 36" aria-hidden="true">
+      <path d="M16 30 a10 10 0 0 1 2-19 a12 12 0 0 1 22-4 a10 10 0 0 1 14 9 a8 8 0 0 1-2 14 Z" fill="#DDEDF5" stroke="#BBD8E6" stroke-width="2" stroke-linejoin="round"/>
+    </svg>
+    <div class="eyebrow fade">확장 이전 인사</div>
+    <h1 class="fade">더 넓고 따뜻하게,<br><span class="bom">봄봄</span>어린이집</h1>
+    <p class="lead fade">우리 트리플 아이들의 꿈과 생각이<br>
+      더 크게 자라나길 바라는 마음을 담아<br>
+      <span class="hl">160평 넓은 공간</span>으로 확장 이전했습니다.</p>
+    <img class="hero-art fade" src="assets/bombom-1.png" alt="아이들이 크레파스로 그린 봄봄어린이집 그림" onerror="this.style.display='none'">
+  </section>
+
+  <!-- ══ 2 이야기 ══ -->
+  <section class="story">
+    <h2 class="sec-tt fade">4년의 동행,<br>그리고 새 이름 '봄봄'
+      <svg class="tt-underline" viewBox="0 0 120 10" aria-hidden="true"><path d="M4 6 Q 30 2 60 6 T 116 5" stroke="#EFA8BC" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+    </h2>
+    <p class="sec-sub fade">Our Story</p>
+
+    <div class="letter fade">
+      <p>트리플의 첫 입주부터 4년간,<br>
+        단지 주민분들께서 믿고 맡겨주신<br>
+        <span class="hl">햇살은어린이집</span>이 이제<br>
+        <span class="hl-p">봄봄어린이집</span>으로 새롭게 출발합니다.</p>
+      <p>아이들이 처음 만나는 작은 사회가<br>
+        언제나 봄처럼 따뜻하기를 바라는<br>
+        마음을 이름에 담았습니다.</p>
+      <p class="sign">— 봄봄어린이집 선생님들 드림</p>
+    </div>
+
+    <div class="growth fade">
+      <div class="box"><b>아늑했던 시작</b>가정어린이집<small>2022 – 2026 · 4년의 시간</small></div>
+      <div class="arr">›</div>
+      <div class="box"><b>새 보금자리</b>160평 관리동<small>2026 · 새 출발</small></div>
+    </div>
+  </section>
+
+  <!-- ══ 2.5 원장 소개 (약력은 원장님 전달분 오면 채움 — 자리만 완성) ══ -->
+  <section class="principal">
+    <h2 class="sec-tt fade">원장 선생님 소개
+      <svg class="tt-underline" viewBox="0 0 120 10" aria-hidden="true"><path d="M4 6 Q 30 2 60 6 T 116 5" stroke="#7C9B72" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+    </h2>
+    <p class="sec-sub fade">Principal</p>
+    <div class="pcard fade">
+      <div class="pphoto" aria-hidden="true">
+        <svg viewBox="0 0 80 80"><circle cx="40" cy="30" r="14" fill="#EADFC9"/><path d="M14 74 Q 14 50 40 50 Q 66 50 66 74 Z" fill="#EADFC9"/></svg>
+      </div>
+      <p class="pname">원장 &nbsp;○ ○ ○</p>
+      <ul class="pbio">
+        <li>약력 준비 중입니다</li>
+      </ul>
+      <p class="pmsg">"아이들 한 명 한 명의 봄을<br>정성껏 돌보겠습니다"</p>
+    </div>
+  </section>
+
+  <!-- ══ 3 통학버스 · 프로그램 ══ -->
+  <section class="bus-sec">
+    <h2 class="sec-tt fade">안심 통학버스
+      <svg class="tt-underline" viewBox="0 0 120 10" aria-hidden="true"><path d="M4 6 Q 30 2 60 6 T 116 5" stroke="#F5C64F" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+    </h2>
+    <p class="sec-sub fade">Shuttle Bus</p>
+    <p class="bus-note fade">매일 아침, 트리플 친구들과 함께 타고 있어요</p>
+
+    <!-- 크레파스 버스가 시간표 위를 부릉부릉 -->
+    <div class="bus-road fade" aria-hidden="true">
+      <div class="roadline"></div>
+      <svg class="bus-mini" viewBox="0 0 84 44">
+        <rect x="2" y="6" width="80" height="26" rx="8" fill="#FFC93C" stroke="#E2A82A" stroke-width="2.5"/>
+        <rect x="9" y="12" width="14" height="11" rx="3" fill="#EAF6FB" stroke="#BFDCE8" stroke-width="1.5"/>
+        <rect x="29" y="12" width="14" height="11" rx="3" fill="#EAF6FB" stroke="#BFDCE8" stroke-width="1.5"/>
+        <rect x="49" y="12" width="14" height="11" rx="3" fill="#EAF6FB" stroke="#BFDCE8" stroke-width="1.5"/>
+        <circle cx="16" cy="18" r="3.4" fill="#FCD7B0"/><circle cx="36" cy="18" r="3.4" fill="#FBD0A6"/><circle cx="56" cy="18" r="3.4" fill="#FCD7B0"/>
+        <g class="wheel"><circle cx="20" cy="36" r="6.5" fill="#6B5B4F" stroke="#4E4238" stroke-width="2"/><line x1="20" y1="31.5" x2="20" y2="40.5" stroke="#D8CBBB" stroke-width="1.6"/><line x1="15.5" y1="36" x2="24.5" y2="36" stroke="#D8CBBB" stroke-width="1.6"/></g>
+        <g class="wheel"><circle cx="62" cy="36" r="6.5" fill="#6B5B4F" stroke="#4E4238" stroke-width="2"/><line x1="62" y1="31.5" x2="62" y2="40.5" stroke="#D8CBBB" stroke-width="1.6"/><line x1="57.5" y1="36" x2="66.5" y2="36" stroke="#D8CBBB" stroke-width="1.6"/></g>
+      </svg>
+    </div>
+
+    <table class="timetable fade" aria-label="통학버스 시간표">
+      <tr><th>등원</th><th>하원</th></tr>
+      <tr><td>7:30</td><td>16:00</td></tr>
+      <tr><td>8:30</td><td>16:40</td></tr>
+      <tr><td>9:30</td><td>17:40</td></tr>
+    </table>
+    <p class="tb-cap fade">가정 사정에 맞춰 시간대를 선택하실 수 있습니다</p>
+
+    <div class="prog fade">
+      <h3>우리 아이들의 하루</h3>
+      <p class="cap">Daily Programs</p>
+      <div class="prog-grid">
+        <div class="prog-card"><img class="prog-art" src="assets/bombom-2.png" alt="" onerror="this.style.display='none'"><b>미술놀이</b><span>마음껏 그리고<br>만들어요</span></div>
+        <div class="prog-card"><img class="prog-art" src="assets/bombom-3.png" alt="" onerror="this.style.display='none'"><b>숲 · 바깥놀이</b><span>계절을 온몸으로<br>느껴요</span></div>
+        <div class="prog-card"><img class="prog-art" src="assets/bombom-4.png" alt="" onerror="this.style.display='none'"><b>동화나라</b><span>매일 만나는<br>이야기 시간</span></div>
+        <div class="prog-card"><img class="prog-art" src="assets/bombom-5.png" alt="" onerror="this.style.display='none'"><b>신체 · 음률</b><span>노래하고 춤추며<br>자라요</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 4 위치 · 문의 ══ -->
+  <section class="loc">
+    <h2 class="sec-tt fade">오시는 길
+      <svg class="tt-underline" viewBox="0 0 120 10" aria-hidden="true"><path d="M4 6 Q 30 2 60 6 T 116 5" stroke="#9EC8DB" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+    </h2>
+    <p class="sec-sub fade">Location</p>
+
+    <div class="map-card fade">
+      <iframe
+        src="https://maps.google.com/maps?q=%EA%B2%BD%EA%B8%B0%20%EC%8B%9C%ED%9D%A5%EC%8B%9C%20%EB%A7%88%EC%9C%A0%EB%A1%9C%20356-9&z=17&hl=ko&output=embed"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="봄봄어린이집 위치 지도"></iframe>
+      <div class="map-meta">
+        <p class="lm"><span class="hl-b">보건지소 · 세무서 바로 옆</span>이에요</p>
+        <p class="addr">경기 시흥시 마유로 356-9<br>정왕1블록 행복주택아파트 관리동</p>
+        <div class="map-links sans">
+          <a href="https://map.kakao.com/link/search/%EA%B2%BD%EA%B8%B0%20%EC%8B%9C%ED%9D%A5%EC%8B%9C%20%EB%A7%88%EC%9C%A0%EB%A1%9C%20356-9" target="_blank" rel="noopener">카카오맵 길찾기</a>
+          <a href="https://map.naver.com/v5/search/%EA%B2%BD%EA%B8%B0%20%EC%8B%9C%ED%9D%A5%EC%8B%9C%20%EB%A7%88%EC%9C%A0%EB%A1%9C%20356-9" target="_blank" rel="noopener">네이버지도 길찾기</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="call-wrap fade">
+      <a class="call-btn" href="tel:0314310633">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        상담전화 연결하기
+      </a>
+      <p class="call-note">031-431-0633 · 언제든 편하게 문의해 주세요</p>
+    </div>
+  </section>
+
+  <footer>
+    <b>봄봄어린이집</b><br>
+    경기 시흥시 마유로 356-9 정왕1블록행복주택아파트 관리동<br>
+    031-431-0633
+  </footer>
+
+  <svg class="wave-bottom" viewBox="0 0 520 22" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 5 Q 13 18 26 5 T 52 5 T 78 5 T 104 5 T 130 5 T 156 5 T 182 5 T 208 5 T 234 5 T 260 5 T 286 5 T 312 5 T 338 5 T 364 5 T 390 5 T 416 5 T 442 5 T 468 5 T 494 5 T 520 5 L520 22 L0 22 Z" fill="#E37E72" opacity=".8"/>
+  </svg>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
