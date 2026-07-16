@@ -157,6 +157,26 @@ html:not(.js) .tt-underline path{stroke-dashoffset:0}
 .growth .box small{display:block;margin-top:6px;font-size:14.5px;color:var(--ink-soft);font-weight:400}
 .growth .arr{align-self:center;color:#CDB89A;font-size:20px}
 
+/* ══ 2.3 추억 갤러리 ══ */
+.memories{background:var(--paper)}
+.mem-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mem-card{
+  margin:0;background:#fff;padding:8px 8px 22px;border-radius:4px;
+  border:1px solid #EDE6D8;
+  box-shadow:0 5px 14px rgba(120,95,60,.10);
+  transform:rotate(-1.2deg);
+}
+.mem-card:nth-child(even){transform:rotate(1.2deg)}
+.mem-card img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:2px;display:block}
+.mem-card.empty{ /* 사진 오기 전: 크레파스 점선 빈 액자 */
+  display:flex;align-items:center;justify-content:center;
+  aspect-ratio:1/1;padding:8px;
+  border:2.5px dashed #E3D3B5;background:#FDFCF9;box-shadow:none;
+}
+.mem-card.empty img{display:none}
+.mem-card.empty::after{content:'📷';font-size:30px;opacity:.35}
+.mem-note{margin-top:18px;text-align:center;font-family:'Noto Sans KR';font-weight:400;font-size:14.5px;color:var(--ink-soft)}
+
 /* ══ 2.5 원장 소개 ══ */
 .principal{background:var(--paper)}
 .pcard{
@@ -294,7 +314,7 @@ footer b{font-family:'Jua';font-weight:400;font-size:15px;color:var(--ink-soft);
     <div class="letter fade">
       <p>트리플의 첫 입주부터 4년간,<br>
         단지 주민분들께서 믿고 맡겨주신<br>
-        <span class="hl">햇살은어린이집</span>이 이제<br>
+        <span class="hl">한걸음어린이집</span>이 이제<br>
         <span class="hl-p">봄봄어린이집</span>으로 새롭게 출발합니다.</p>
       <p>아이들이 처음 만나는 작은 사회가<br>
         언제나 봄처럼 따뜻하기를 바라는<br>
@@ -307,6 +327,23 @@ footer b{font-family:'Jua';font-weight:400;font-size:15px;color:var(--ink-soft);
       <div class="arr">›</div>
       <div class="box"><b>새 보금자리</b>160평 관리동<small>2026 · 새 출발</small></div>
     </div>
+  </section>
+
+  <!-- ══ 2.3 한걸음 시절 추억 갤러리 (사진은 assets/memory-1.jpg ~ memory-6.jpg 로 넣으면 자동 표시) ══ -->
+  <section class="memories">
+    <h2 class="sec-tt fade">한걸음 어린이집에서의<br>추억들
+      <svg class="tt-underline" viewBox="0 0 120 10" aria-hidden="true"><path d="M4 6 Q 30 2 60 6 T 116 5" stroke="#F5C64F" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+    </h2>
+    <p class="sec-sub fade">Memories</p>
+    <div class="mem-grid fade">
+      <figure class="mem-card"><img src="assets/memory-1.jpg" alt="한걸음 어린이집 추억 사진" onerror="this.parentElement.classList.add('empty')"></figure>
+      <figure class="mem-card"><img src="assets/memory-2.jpg" alt="한걸음 어린이집 추억 사진" onerror="this.parentElement.classList.add('empty')"></figure>
+      <figure class="mem-card"><img src="assets/memory-3.jpg" alt="한걸음 어린이집 추억 사진" onerror="this.parentElement.classList.add('empty')"></figure>
+      <figure class="mem-card"><img src="assets/memory-4.jpg" alt="한걸음 어린이집 추억 사진" onerror="this.parentElement.classList.add('empty')"></figure>
+      <figure class="mem-card"><img src="assets/memory-5.jpg" alt="한걸음 어린이집 추억 사진" onerror="this.parentElement.classList.add('empty')"></figure>
+      <figure class="mem-card"><img src="assets/memory-6.jpg" alt="한걸음 어린이집 추억 사진" onerror="this.parentElement.classList.add('empty')"></figure>
+    </div>
+    <p class="mem-note fade">4년의 소중한 순간들을 담은 사진을 준비하고 있어요</p>
   </section>
 
   <!-- ══ 2.5 원장 소개 (약력은 원장님 전달분 오면 채움 — 자리만 완성) ══ -->
@@ -378,14 +415,14 @@ footer b{font-family:'Jua';font-weight:400;font-size:15px;color:var(--ink-soft);
 
     <div class="map-card fade">
       <iframe
-        src="https://maps.google.com/maps?q=%EA%B2%BD%EA%B8%B0%20%EC%8B%9C%ED%9D%A5%EC%8B%9C%20%EB%A7%88%EC%9C%A0%EB%A1%9C%20356-9&z=17&hl=ko&output=embed"
+        src="https://maps.google.com/maps?q=37.347559,126.737843&z=18&hl=ko&output=embed"
         loading="lazy" referrerpolicy="no-referrer-when-downgrade"
         title="봄봄어린이집 위치 지도"></iframe>
       <div class="map-meta">
         <p class="lm"><span class="hl-b">보건지소 · 세무서 바로 옆</span>이에요</p>
         <p class="addr">경기 시흥시 마유로 356-9<br>정왕1블록 행복주택아파트 관리동</p>
         <div class="map-links sans">
-          <a href="https://map.kakao.com/link/search/%EA%B2%BD%EA%B8%B0%20%EC%8B%9C%ED%9D%A5%EC%8B%9C%20%EB%A7%88%EC%9C%A0%EB%A1%9C%20356-9" target="_blank" rel="noopener">카카오맵 길찾기</a>
+          <a href="https://place.map.kakao.com/922748709" target="_blank" rel="noopener">카카오맵 길찾기</a>
           <a href="https://map.naver.com/v5/search/%EA%B2%BD%EA%B8%B0%20%EC%8B%9C%ED%9D%A5%EC%8B%9C%20%EB%A7%88%EC%9C%A0%EB%A1%9C%20356-9" target="_blank" rel="noopener">네이버지도 길찾기</a>
         </div>
       </div>
