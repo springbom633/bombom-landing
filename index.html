@@ -232,7 +232,9 @@ html:not(.js) .tt-underline path{stroke-dashoffset:0}
   background:#fff;border:1px solid #EDE3CF;border-radius:10px;overflow:hidden;
   box-shadow:0 6px 20px rgba(120,95,60,.09);
 }
-.map-card iframe{display:block;width:100%;height:300px;border:0}
+.map-card .map-link{display:block;position:relative}
+.map-card .map-link img{display:block;width:100%;height:auto}
+.map-card .map-tap{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);background:rgba(74,63,53,.85);color:#fff;font-size:12.5px;padding:6px 14px;border-radius:20px;white-space:nowrap}
 .map-meta{padding:20px 20px 22px;text-align:center}
 .map-meta .lm{font-size:23px;margin-bottom:4px}
 .map-meta .lm .hl-b{background:linear-gradient(transparent 60%, rgba(158,200,219,.45) 60%, rgba(158,200,219,.45) 90%, transparent 90%);padding:0 2px}
@@ -414,16 +416,17 @@ footer b{font-family:'Jua';font-weight:400;font-size:15px;color:var(--ink-soft);
     <p class="sec-sub fade">Location</p>
 
     <div class="map-card fade">
-      <iframe
-        src="https://maps.google.com/maps?q=37.347559,126.737843&z=18&hl=ko&output=embed"
-        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        title="봄봄어린이집 위치 지도"></iframe>
+      <!-- [지도교체] 구글 임베드 → 네이버지도 실화면 (터치 시 네이버지도 장소 페이지로 이동) -->
+      <a class="map-link" href="https://map.naver.com/p/entry/place/1543324408" target="_blank" rel="noopener">
+        <img src="assets/naver-map.png" alt="봄봄어린이집 위치 — 네이버지도 (시흥세무서 옆)">
+        <span class="map-tap sans">지도를 누르면 네이버지도가 열려요</span>
+      </a>
       <div class="map-meta">
         <p class="lm"><span class="hl-b">보건지소 · 세무서 바로 옆</span>이에요</p>
         <p class="addr">경기 시흥시 마유로 356-9<br>정왕1블록 행복주택아파트 관리동</p>
         <div class="map-links sans">
           <a href="https://place.map.kakao.com/922748709" target="_blank" rel="noopener">카카오맵 길찾기</a>
-          <a href="https://map.naver.com/v5/search/%EA%B2%BD%EA%B8%B0%20%EC%8B%9C%ED%9D%A5%EC%8B%9C%20%EB%A7%88%EC%9C%A0%EB%A1%9C%20356-9" target="_blank" rel="noopener">네이버지도 길찾기</a>
+          <a href="https://map.naver.com/p/entry/place/1543324408" target="_blank" rel="noopener">네이버지도 길찾기</a>
         </div>
       </div>
     </div>
